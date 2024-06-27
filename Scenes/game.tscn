@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://b1ql6bod3vhta"]
+
+[ext_resource type="PackedScene" uid="uid://cb4voll3ycvrt" path="res://Scenes/Object/block.tscn" id="1_64x4j"]
+[ext_resource type="PackedScene" uid="uid://ct43fw2gexssn" path="res://Scenes/Entites/mario.tscn" id="2_hv7g6"]
+[ext_resource type="PackedScene" uid="uid://bnra7sl4ap3bg" path="res://Scenes/Object/coin.tscn" id="3_wlk6m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slkgn"]
+albedo_color = Color(0.658824, 0.588235, 0.941176, 1)
+roughness = 0.34
+
+[sub_resource type="BoxMesh" id="BoxMesh_ufl7o"]
+material = SubResource("StandardMaterial3D_slkgn")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fprbw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gh3s8"]
+sky_top_color = Color(0.4, 0.278431, 1, 1)
+sky_horizon_color = Color(1, 0.45098, 0.545098, 1)
+sky_curve = 0.0609195
+ground_horizon_color = Color(0.933333, 0.521569, 0.47451, 1)
+
+[sub_resource type="Sky" id="Sky_a68pq"]
+sky_material = SubResource("ProceduralSkyMaterial_gh3s8")
+
+[sub_resource type="Environment" id="Environment_ol64h"]
+background_mode = 2
+sky = SubResource("Sky_a68pq")
+
+[node name="Game" type="Node3D"]
+
+[node name="Mario" parent="." instance=ExtResource("2_hv7g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1, -9)
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("3_wlk6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.89368, 0.990069, -1.61098)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("3_wlk6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.68275, 0.990069, -2.91053)
+
+[node name="Blocks" type="Node" parent="."]
+
+[node name="Block" parent="Blocks" instance=ExtResource("1_64x4j")]
+transform = Transform3D(-0.657379, -0.122351, -0.743561, -0.638952, -0.432603, 0.636078, -0.399491, 0.893244, 0.206208, 1.3009, 5.17518, -1.68939)
+
+[node name="Block2" parent="Blocks" instance=ExtResource("1_64x4j")]
+transform = Transform3D(0.144856, -0.136983, -0.979925, -0.687087, -0.726575, 0, -0.711989, 0.673294, -0.199368, -0.295718, 10.598, 1.28343)
+
+[node name="Block3" parent="Blocks" instance=ExtResource("1_64x4j")]
+transform = Transform3D(-0.947768, -0.318959, 4.21216e-08, 3.61957e-08, 2.45063e-08, 1, -0.318959, 0.947768, -1.16814e-08, 1.94302, 7.41994, -0.988795)
+
+[node name="Block4" parent="Blocks" instance=ExtResource("1_64x4j")]
+transform = Transform3D(-0.528438, -0.848972, 4.28339e-08, 3.00336e-08, 3.17596e-08, 1, -0.848972, 0.528438, 8.71465e-09, 0.346405, 12.8427, 1.98403)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(23.9663, 0, 0, 0, 0.346858, 0, 0, 0, 25.2879, 0, -0.33011, 0)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_ufl7o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_fprbw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0823712, 0.716149, -0.69307, -0.0767398, 0.697926, 0.712047, 0.993643, -0.00546605, 0.112446, -14.9063, 5.47907, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ol64h")

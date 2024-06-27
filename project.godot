@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="3DAdventure"
+run/main_scene="res://Scenes/game.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/icon.svg"
 
 [dotnet]
 
 project/assembly_name="3DAdventure"
+
+[rendering]
+
+anti_aliasing/quality/msaa_3d=1
