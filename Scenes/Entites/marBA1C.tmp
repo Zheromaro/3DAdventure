@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct43fw2gexssn"]
+
+[ext_resource type="Script" path="res://Scripts/mario.gd" id="1_46deb"]
+[ext_resource type="Script" path="res://Scripts/SpringArm.gd" id="2_nkw8d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3pkv"]
+albedo_color = Color(0.980392, 0.329412, 0.439216, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c3ldl"]
+material = SubResource("StandardMaterial3D_g3pkv")
+size = Vector3(0.8, 1, 0.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d3fc7"]
+size = Vector3(0.8, 1, 0.8)
+
+[node name="Mario" type="CharacterBody3D" node_paths=PackedStringArray("spring_arm_3d", "model")]
+script = ExtResource("1_46deb")
+spring_arm_3d = NodePath("SpringArm3D")
+model = NodePath("MeshInstance3D")
+speed = null
+jump_height = 300.0
+jump_time_to_peak = 25.0
+jump_time_to_descent = 20.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_c3ldl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_d3fc7")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+spring_length = 7.0
+margin = 0.2
+script = ExtResource("2_nkw8d")
+mouse_sensitivity = 0.1

@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://i8lfxab25us4"
+path="res://.godot/imported/FirstMap.5.map-8ad86acc7334382f37ca9edc2cc421c6.tres"
+
+[deps]
+
+source_file="res://Maps/autosave/FirstMap.5.map"
+dest_files=["res://.godot/imported/FirstMap.5.map-8ad86acc7334382f37ca9edc2cc421c6.tres"]
+
+[params]
+
