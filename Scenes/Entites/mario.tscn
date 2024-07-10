@@ -1,34 +1,42 @@
 [gd_scene load_steps=6 format=3 uid="uid://ct43fw2gexssn"]
 
 [ext_resource type="Script" path="res://Scripts/mario.gd" id="1_46deb"]
-[ext_resource type="Script" path="res://Scripts/SpringArm.gd" id="2_nkw8d"]
+[ext_resource type="PackedScene" uid="uid://bj3dsn7foqevf" path="res://Scenes/Entites/navigation_area.tscn" id="2_agex3"]
+[ext_resource type="Script" path="res://Scripts/CameraSutup.gd" id="2_iwmx2"]
+[ext_resource type="PackedScene" uid="uid://bfbntxnp8t3qk" path="res://Assets/Models/PlayerCharacter.gltf" id="3_rn7mq"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3pkv"]
-albedo_color = Color(0.980392, 0.329412, 0.439216, 1)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_b3yiy"]
+height = 1.0
+radius = 0.302478
 
-[sub_resource type="BoxMesh" id="BoxMesh_c3ldl"]
-material = SubResource("StandardMaterial3D_g3pkv")
-size = Vector3(0.8, 1, 0.8)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_d3fc7"]
-size = Vector3(0.8, 1, 0.8)
-
-[node name="Mario" type="CharacterBody3D" node_paths=PackedStringArray("spring_arm_3d", "model")]
+[node name="Mario" type="CharacterBody3D" node_paths=PackedStringArray("spring_arm", "model", "ray_cast") groups=["Player"]]
 script = ExtResource("1_46deb")
-spring_arm_3d = NodePath("SpringArm3D")
-model = NodePath("MeshInstance3D")
+spring_arm = NodePath("SpringArm3D")
+model = NodePath("blockbench_export")
+speed = 10.0
 jump_height = 300.0
-jump_time_to_peak = 25.0
-jump_time_to_descent = 20.0
+jump_time_to_peak = 22.0
+jump_time_to_descent = 18.0
+ray_cast = NodePath("RayCast3D")
+navigation_area_path = ExtResource("2_agex3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_c3ldl")
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6083, 0)
+target_position = Vector3(0, 5, 0)
+
+[node name="blockbench_export" parent="." instance=ExtResource("3_rn7mq")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_d3fc7")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.533915, 0)
+shape = SubResource("CylinderShape3D_b3yiy")
 
-[node name="SpringArm3D" type="SpringArm3D" parent="."]
+[node name="SpringArm3D" type="SpringArm3D" parent="." node_paths=PackedStringArray("mario")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11203, 0)
+top_level = true
 spring_length = 7.0
 margin = 0.2
-script = ExtResource("2_nkw8d")
-mouse_sensitivity = 0.1
+script = ExtResource("2_iwmx2")
+offset = Vector2(0, 1.5)
+mario = NodePath("..")
+
+[node name="CineCam3D" type="Camera3D" parent="SpringArm3D"]

@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://blkwspvk4pfpg"
+path="res://.godot/imported/level1.map-59fe474be06c3054017dc0f7995a532f.tres"
+
+[deps]
+
+source_file="res://TB/Maps/level1.map"
+dest_files=["res://.godot/imported/level1.map-59fe474be06c3054017dc0f7995a532f.tres"]
+
+[params]
+

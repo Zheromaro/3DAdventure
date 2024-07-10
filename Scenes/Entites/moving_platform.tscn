@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://74pxo8bem0a7"]
+
+[ext_resource type="PackedScene" uid="uid://d3y7k28bb6cuy" path="res://Assets/Models/movingPlatform.gltf" id="1_gh5j2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2udxk"]
+size = Vector3(4.1, 0.25, 4.3)
+
+[node name="MovingPlatform" type="AnimatableBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_2udxk")
+
+[node name="blockbench_export" parent="." instance=ExtResource("1_gh5j2")]

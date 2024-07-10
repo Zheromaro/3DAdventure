@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c25t7umqttn70"]
+
+[ext_resource type="Script" path="res://Scripts/DeadZone.gd" id="1_o5x2l"]
+
+[node name="deathZone" type="Area3D"]
+script = ExtResource("1_o5x2l")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

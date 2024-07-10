@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwy0e4xbw327m"]
+
+[ext_resource type="Script" path="res://Scripts/SlimeEnemy.gd" id="1_18scx"]
+[ext_resource type="PackedScene" uid="uid://butdacd6jtnyh" path="res://Assets/Models/SlimeEnime.gltf" id="2_x5xv6"]
+[ext_resource type="PackedScene" uid="uid://c25t7umqttn70" path="res://Scenes/Object/deathZone.tscn" id="3_dnnd2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b1da8"]
+size = Vector3(0.5, 0.7, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bjqdw"]
+size = Vector3(0.785156, 0.846802, 0.783203)
+
+[node name="SlimeEnemy" type="CharacterBody3D" node_paths=PackedStringArray("model", "forward_ray_cast")]
+script = ExtResource("1_18scx")
+model = NodePath("Model_SilmeEnemy")
+forward_ray_cast = NodePath("ForwardRayCast")
+
+[node name="Model_SilmeEnemy" parent="." instance=ExtResource("2_x5xv6")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+shape = SubResource("BoxShape3D_b1da8")
+
+[node name="deathZone" parent="." instance=ExtResource("3_dnnd2")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="deathZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.423401, 0)
+shape = SubResource("BoxShape3D_bjqdw")
+
+[node name="ForwardRayCast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.413027, 0)
+target_position = Vector3(1, 0, 0)
