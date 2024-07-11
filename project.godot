@@ -18,6 +18,8 @@ config/icon="res://Assets/icon.svg"
 [autoload]
 
 Music="*res://Scenes/Music.tscn"
+BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
+BeehaveGlobalDebugger="*res://addons/beehave/debug/global_debugger.gd"
 
 [dotnet]
 
@@ -25,7 +27,7 @@ project/assembly_name="3DAdventure"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/func_godot/plugin.cfg")
+enabled=PackedStringArray("res://addons/beehave/plugin.cfg", "res://addons/func_godot/plugin.cfg")
 
 [input]
 

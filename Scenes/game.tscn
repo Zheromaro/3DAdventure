@@ -223,23 +223,8 @@ _data = {
 "move": SubResource("Animation_amghk")
 }
 
-[sub_resource type="Animation" id="Animation_3jonm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(56, 12.5, -30.5)]
-}
-
-[sub_resource type="Animation" id="Animation_6s2nj"]
-resource_name = "move"
+[sub_resource type="Animation" id="Animation_p1mid"]
+resource_name = "Move"
 length = 2.0
 loop_mode = 2
 tracks/0/type = "value"
@@ -252,13 +237,28 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(56, 12.5, -21.5), Vector3(56, 12.5, -30.5)]
+"values": [Vector3(55.5, 12.5, -21.5), Vector3(55.5, 12.5, -31)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fif1c"]
+[sub_resource type="Animation" id="Animation_gfrpg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(55.5, 12.5, -21.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m68ls"]
 _data = {
-"RESET": SubResource("Animation_3jonm"),
-"move": SubResource("Animation_6s2nj")
+"Move": SubResource("Animation_p1mid"),
+"RESET": SubResource("Animation_gfrpg")
 }
 
 [sub_resource type="TextMesh" id="TextMesh_2ouuy"]
@@ -285,7 +285,7 @@ script = ExtResource("1_samq4")
 score_text = NodePath("../Text/ScoreText")
 
 [node name="Mario" parent="." instance=ExtResource("9_wirs4")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 2, 0)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 55.2899, 23.8073, -95.6412)
 
 [node name="Map" type="Node3D" parent="."]
 script = ExtResource("3_e2qkc")
@@ -408,46 +408,62 @@ libraries = {
 autoplay = "move"
 
 [node name="MovingPlatform3" parent="MovingPlatforms" instance=ExtResource("6_bsa7b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56, 12.5, -30.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.5, 12.5, -21.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlatforms/MovingPlatform3"]
 libraries = {
-"": SubResource("AnimationLibrary_fif1c")
+"": SubResource("AnimationLibrary_m68ls")
 }
-autoplay = "move"
 
 [node name="Coin" parent="MovingPlatforms/MovingPlatform3" instance=ExtResource("7_wq0d1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 
 [node name="SlimeEnemys" type="Node" parent="."]
 
 [node name="SlimeEnemy" parent="SlimeEnemys" instance=ExtResource("9_6d42n")]
-transform = Transform3D(0.999899, 0, 0.014224, 0, 1, 0, -0.014224, 0, 0.999899, 60.8038, 12.6393, -39.0659)
-
-[node name="SlimeEnemy2" parent="SlimeEnemys" instance=ExtResource("9_6d42n")]
-transform = Transform3D(-0.999899, 0, -0.0142241, 0, 1, 0, 0.0142241, 0, -0.999899, 47.6991, 12.5, -43.0659)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 48.0334, 12.5, -37.2228)
 
 [node name="SlimeEnemy3" parent="SlimeEnemys" instance=ExtResource("9_6d42n")]
-transform = Transform3D(0.999899, 0, 0.014224, 0, 1, 0, -0.014224, 0, 0.999899, 60.8038, 12.5, -49.0659)
-
-[node name="SlimeEnemy4" parent="SlimeEnemys" instance=ExtResource("9_6d42n")]
-transform = Transform3D(-0.999899, 0, -0.0142241, 0, 1, 0, 0.0142241, 0, -0.999899, 47.6991, 12.5, -54.0659)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 48.0334, 12.5, -49.2228)
 
 [node name="SlimeEnemy5" parent="SlimeEnemys" instance=ExtResource("9_6d42n")]
-transform = Transform3D(0.717093, 0, -0.696977, 0, 1, 0, 0.696977, 0, 0.717093, 69.1412, 11.4693, -69.4513)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 48.0334, 12.5, -62.2228)
 
-[node name="SlimeEnemy6" parent="SlimeEnemys" instance=ExtResource("9_6d42n")]
-transform = Transform3D(0.696977, 0, 0.717093, 0, 1, 0, -0.717093, 0, 0.696977, 69.1412, 11.4693, -92.4513)
+[node name="SlimeEnemy2" parent="SlimeEnemys" instance=ExtResource("9_6d42n")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 60.8773, 12.5, -43.2228)
 
-[node name="SlimeEnemy7" parent="SlimeEnemys" instance=ExtResource("9_6d42n")]
-transform = Transform3D(-0.717093, 0, 0.696977, 0, 1, 0, -0.696977, 0, -0.717093, 41.1412, 11.4693, -92.4513)
+[node name="SlimeEnemy4" parent="SlimeEnemys" instance=ExtResource("9_6d42n")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 60.8773, 12.5, -55.2228)
 
-[node name="SlimeEnemy8" parent="SlimeEnemys" instance=ExtResource("9_6d42n")]
-transform = Transform3D(-0.696977, 0, -0.717093, 0, 1, 0, 0.717093, 0, -0.696977, 41.1412, 11.4693, -69.4513)
+[node name="SlimeEnemy10" parent="SlimeEnemys" instance=ExtResource("9_6d42n")]
+transform = Transform3D(-0.999898, 0, -0.0142241, 0, 1, 0, 0.0142241, 0, -0.999898, 40.5396, 11.4693, -83.6215)
 
-[node name="SlimeEnemy9" parent="SlimeEnemys" node_paths=PackedStringArray("forward_ray_cast") instance=ExtResource("9_6d42n")]
-transform = Transform3D(-0.999898, 0, -0.0142241, 0, 1, 0, 0.0142241, 0, -0.999898, 40.5396, 11.4693, -83.1661)
-forward_ray_cast = NodePath("../SlimeEnemy8/ForwardRayCast")
+[node name="SlimeEnemy11" parent="SlimeEnemys" instance=ExtResource("9_6d42n")]
+transform = Transform3D(-0.999898, 0, -0.0142241, 0, 1, 0, 0.0142241, 0, -0.999898, 40.5396, 11.4693, -80.1661)
+
+[node name="SlimeEnemy12" parent="SlimeEnemys" instance=ExtResource("9_6d42n")]
+transform = Transform3D(-0.999898, 0, -0.0142241, 0, 1, 0, 0.0142241, 0, -0.999898, 40.5396, 11.4693, -77.1661)
+
+[node name="SlimeEnemy13" parent="SlimeEnemys" instance=ExtResource("9_6d42n")]
+transform = Transform3D(-0.999898, 0, -0.0142241, 0, 1, 0, 0.0142241, 0, -0.999898, 40.5396, 11.4693, -74.1661)
+
+[node name="SlimeEnemy14" parent="SlimeEnemys" instance=ExtResource("9_6d42n")]
+transform = Transform3D(-0.999898, 0, -0.0142241, 0, 1, 0, 0.0142241, 0, -0.999898, 40.5396, 11.4693, -71.1661)
+
+[node name="SlimeEnemy15" parent="SlimeEnemys" instance=ExtResource("9_6d42n")]
+transform = Transform3D(-0.999898, 0, -0.0142241, 0, 1, 0, 0.0142241, 0, -0.999898, 40.5396, 11.4693, -68.1661)
+
+[node name="SlimeEnemy16" parent="SlimeEnemys" instance=ExtResource("9_6d42n")]
+transform = Transform3D(-0.999898, 0, -0.0142241, 0, 1, 0, 0.0142241, 0, -0.999898, 40.5396, 11.4693, -87.1661)
+
+[node name="SlimeEnemy17" parent="SlimeEnemys" instance=ExtResource("9_6d42n")]
+transform = Transform3D(-0.999898, 0, -0.0142241, 0, 1, 0, 0.0142241, 0, -0.999898, 40.5396, 11.4693, -91.1661)
+
+[node name="SlimeEnemy18" parent="SlimeEnemys" instance=ExtResource("9_6d42n")]
+transform = Transform3D(-0.999898, 0, -0.0142241, 0, 1, 0, 0.0142241, 0, -0.999898, 40.5396, 11.4693, -95.1661)
+
+[node name="SlimeEnemy19" parent="SlimeEnemys" instance=ExtResource("9_6d42n")]
+transform = Transform3D(-0.999898, 0, -0.0142241, 0, 1, 0, 0.0142241, 0, -0.999898, 40.5396, 11.4693, -99.1661)
 
 [node name="Coins" type="Node" parent="."]
 
@@ -483,9 +499,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.8439, 14, -90.7707)
 
 [node name="Coin11" parent="Coins" instance=ExtResource("7_wq0d1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.8778, 14, -79.8481)
-
-[node name="Coin12" parent="Coins" instance=ExtResource("7_wq0d1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.4931, 14, -73.1401)
 
 [node name="Coin13" parent="Coins" instance=ExtResource("7_wq0d1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 8.5, 9)

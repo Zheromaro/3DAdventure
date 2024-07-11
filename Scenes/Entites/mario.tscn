@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://ct43fw2gexssn"]
 
-[ext_resource type="Script" path="res://Scripts/mario.gd" id="1_46deb"]
+[ext_resource type="Script" path="res://Scripts/Player/mario.gd" id="1_46deb"]
 [ext_resource type="PackedScene" uid="uid://bj3dsn7foqevf" path="res://Scenes/Entites/navigation_area.tscn" id="2_agex3"]
-[ext_resource type="Script" path="res://Scripts/CameraSutup.gd" id="2_iwmx2"]
+[ext_resource type="Script" path="res://Scripts/Player/CameraSutup.gd" id="2_iwmx2"]
 [ext_resource type="PackedScene" uid="uid://bfbntxnp8t3qk" path="res://Assets/Models/PlayerCharacter.gltf" id="3_rn7mq"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_b3yiy"]

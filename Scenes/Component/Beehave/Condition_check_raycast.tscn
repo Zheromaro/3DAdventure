@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://etth4jl1pp48"]
+
+[ext_resource type="Script" path="res://Scripts/Beehave/SlimeEnemy/There_is_wall_in_front.gd" id="1_nfu6v"]
+
+[node name="CheckRayCast" type="Node" node_paths=PackedStringArray("ray_casts_to_chek")]
+script = ExtResource("1_nfu6v")
+ray_casts_to_chek = [null]

@@ -54,8 +54,7 @@ script = ExtResource("5_kdhur")
 [node name="Turn_back" type="Node" parent="BeehaveTree/SelectorComposite"]
 script = ExtResource("6_llxhn")
 
-[node name="There_is_wall_in_front" parent="BeehaveTree/SelectorComposite/Turn_back" node_paths=PackedStringArray("ray_casts_to_check") instance=ExtResource("7_uqi1v")]
-ray_casts_to_check = [NodePath("../../../../Model_SilmeEnemy/ForwardRayCast")]
+[node name="There_is_wall_in_front" parent="BeehaveTree/SelectorComposite/Turn_back" instance=ExtResource("7_uqi1v")]
 
 [node name="Turn" type="Node" parent="BeehaveTree/SelectorComposite/Turn_back"]
 script = ExtResource("8_sfqq5")
